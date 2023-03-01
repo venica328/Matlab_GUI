@@ -1,5 +1,5 @@
 
-function s = sloter(value,d,N,te,datalineSloter,PacketLength,temp_figure) 
+function s = sloter(value,d,N,te,PacketLength) 
    
     s = table();    % ulozime vystupy v podobe 'a' a 'b'
 
@@ -14,9 +14,7 @@ function s = sloter(value,d,N,te,datalineSloter,PacketLength,temp_figure)
         for i=1:N-1
             T=T+te(i);
             if mod(i,1000) == 0
-               datalineSloter.Value = i/N;
-               datalineSloter.Message = sprintf('Dokončené na %12.2f%%',i/N*100);
-               pause(0.05);
+               i
             end
             if T>d
                a = [a , I];
@@ -32,14 +30,6 @@ function s = sloter(value,d,N,te,datalineSloter,PacketLength,temp_figure)
                I = I+1;
                P = P + PacketLength(i);
             end
-    
-            if isempty(findobj(temp_figure)) == 1
-                datalineSloter.CancelRequested = 1;
-            end
-            if datalineSloter.CancelRequested == 1
-                disp('You Hit Cancel or Exited')
-                return
-            end
         end
         % do vystupnej tabulky pridame a potom b 
         s = addvars(s,a);
@@ -54,9 +44,7 @@ function s = sloter(value,d,N,te,datalineSloter,PacketLength,temp_figure)
         for i=1:N-1
             T=T+te(i);
             if mod(i,1000) == 0
-               datalineSloter.Value = i/N;
-               datalineSloter.Message = sprintf('Dokončené na %12.2f%%',i/N*100);
-               pause(0.05);
+                i
             end
             if T>d
                a = [a , I];
@@ -67,14 +55,6 @@ function s = sloter(value,d,N,te,datalineSloter,PacketLength,temp_figure)
                end
             else
                I = I+1;
-            end
-
-            if isempty(findobj(temp_figure)) == 1
-                datalineSloter.CancelRequested = 1;
-            end
-            if datalineSloter.CancelRequested == 1
-                disp('You Hit Cancel or Exited')
-                return
             end
         end
         s = addvars(s,a);
