@@ -35,8 +35,8 @@ function s = sloter(value,d,N,te,PacketLength)
         s = addvars(s,a);
         s = addvars(s,b);
 
-    % prepocita sa algoritmus bez paketov a casov naraz, pocitaju sa iba casy alebo iba pakety
-    elseif value == 2 
+    % prepocita sa algoritmus bez paketov a casov naraz, pocitaju sa iba casy
+    else
 
         T = 0;
         I = 0;
@@ -58,6 +58,4 @@ function s = sloter(value,d,N,te,PacketLength)
             end
         end
         s = addvars(s,a);
-
     end
-end
