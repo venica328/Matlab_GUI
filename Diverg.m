@@ -21,5 +21,5 @@ function [Diverg] = Diverg(data1,data2)
         end
     end
 
-    Diverg = -sum(pdf1.*log(pdf1/pdf2));
+    Diverg = sum(pdf1.*log(pdf1./pdf2));
 end
