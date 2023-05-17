@@ -22,6 +22,12 @@ N = length(Nt);
                 v(i) = max(skewness(data),0); % spicatost
            elseif func_param == 6
                 v(i) = hurst(data); % Hurstov exponent
+            elseif func_param == 61
+                v(i) = Hurst_RS(data,0,0,0); % Hurstov exponent RS
+            elseif func_param == 62
+                v(i) = DFA(data,2,0); % Hurstov exponent DFA
+            elseif func_param == 63
+                v(i) = AbsoluteMethod(data,2,0); % Hurstov exponent Abs
            elseif func_param == 7
                 v(i) = Ent(data);   % pre vypocet Entropie
            elseif func_param == 8
